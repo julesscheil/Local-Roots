@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "local-roots",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "local roots app",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
