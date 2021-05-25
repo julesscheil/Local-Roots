@@ -2,28 +2,55 @@ import React, { useState } from "react";
 import API from "../../utils/API";
 
 const Home = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  const handleLogin = (event) => {
-    event.preventDefault();
-    API.userLogin({ email: email, password: password })
-      .then((res) => console.log(res))
-      .then(setLoggedIn(true))
-      .catch((err) => console.log(err));
-  };
 
   const handleSignup = (event) => {
     event.preventDefault();
-    API.userSignup({ email: email, password: password })
-    .then((res) => console.log(res))
-    .then(setLoggedIn(true))
-    .catch((err) => console.log(err));
-  }
+    API.userSignup({ name, email, password })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    API.userLogin({ email, password })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  const handleLogout = (event) => {
+    event.preventDefault();
+    setName("");
+    setEmail("");
+    setPassword("");
+    API.userLogout()
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
+      <h1>Signup Form</h1>
+      <form onSubmit={handleSignup}>
+        <input
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Signup</button>
+      </form>
       <h1>Login Form</h1>
       <form onSubmit={handleLogin}>
         <input
@@ -38,20 +65,7 @@ const Home = () => {
         />
         <button type="submit">Login</button>
       </form>
-      <h1>Signup Form</h1>
-      <form onSubmit={handleSignup}>
-        <input
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Signup</button>
-      </form>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };
