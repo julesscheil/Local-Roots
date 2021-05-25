@@ -5,7 +5,7 @@ import ForumCard from "./components/ForumCard/index";
 import Favorites from "./Pages/Favorites/index";
 import Sale from "./Pages/forSale/index";
 import forumPosts from "./Pages/forumPosts/index";
-import Login from "./Pages/Login/index";
+import Home from "./Pages/Login/index";
 import "./App.css";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <h3><a href="/forum">Forum</a></h3>
         </nav>
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/forsale" component={Sale} />
           <Route exact path="/forum" component={forumPosts} />
           <Route exact path="/favorites" component={Favorites} />
