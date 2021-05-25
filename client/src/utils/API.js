@@ -6,13 +6,13 @@ export default {
       "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm
     );
   },
-  saveBook: function (bookData) {
-    return axios.post("/api/books", bookData);
+  saveBook: function (plantData) {
+    return axios.post("/api/plants", plantData);
   },
   getSavedBooks: function () {
-    return axios.get("api/books");
+    return axios.get("api/plants");
   },
   deleteBook: function (id) {
-    return axios.delete("/api/books" + id);
+    return axios.delete("/api/plants" + id);
   },
 };
