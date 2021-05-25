@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+
+import React from "react";
+
+import { Card, Button } from "react-bootstrap";
+import { Container, Row, Col } from 'react-bootstrap';
+
 import API from "../../utils/API";
+import "./style.css";
 
 function Saved(props) {
 
-  const [books, setBooks] = useState([]);
+
 
   // getSavedBooks = () => {
   //   API.getSavedBooks()
@@ -14,29 +20,31 @@ function Saved(props) {
   // };
 
   return (
-    <div>
-      {!books.length ? (
-        <h3>No Saved Books</h3>
-      ) : (
-        <div>
-          <h3>Saved Books</h3>
-          {books.map((book) => {
-            return (
-              <div key={book.title}>
-                <h4>{book.title}</h4>
-                <h5>{book.authors}</h5>
-                <p>{book.description}</p>
-                <img src={book.image} />
-                <a href={book.link} target="_blank">
-                  Link
-                </a>
-                <button>Delete</button>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </div>
+    <Container>
+      <Row>
+    <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src="./images/plantspic.png" />
+  <Card.Body>
+    <Card.Title>Ficus</Card.Title>
+    <Card.Text>
+      Here's a Ficus I'd like to sell!
+    </Card.Text>
+    <Button variant="primary">Inquire</Button>
+  </Card.Body>
+</Card>
+
+    <Card style={{ width: '18rem' }}>
+    <Card.Img variant="top" src="./images/plant2.png" />
+    <Card.Body>
+      <Card.Title>Ficus</Card.Title>
+      <Card.Text>
+        Here's a taller plant I'd like to sell!
+      </Card.Text>
+      <Button variant="primary">Inquire</Button>
+    </Card.Body>
+  </Card>
+  </Row>
+  </Container>
   );
 }
 
