@@ -1,8 +1,8 @@
 const sequelize = require('../config/connection');
-const { User, ForumPost } = require('../models');
+const { User, ForumPost, ForSalePost } = require('../models');
 const userData = require('./userData.json');
 const forumPostData = require('./forumPostData.json');
-
+const forSalePostData = require('./forSalePostData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -13,7 +13,11 @@ const seedDatabase = async () => {
   });
 
   const forumPost = await ForumPost.bulkCreate(forumPostData, {
+    returning: true,
+  });
 
+  const forSalePost = await ForSalePost.bulkCreate(forSalePostData, {
+    returning: true,
   });
 
   process.exit(0);

@@ -19,7 +19,7 @@ const {
     description: DataTypes.STRING,
     image: {
       type: DataTypes.STRING,
-      default: "default.png"
+      defaultValue: "default.png"
     },
     category: DataTypes.STRING,
     location: DataTypes.STRING,

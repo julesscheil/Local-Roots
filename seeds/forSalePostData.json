@@ -1,0 +1,25 @@
+[{
+       
+    "title": "Sale Post 1",
+    "description": "this is a test post 1",
+    "user_id": "1",
+    "category": "indoor",
+    "location": "atlanta"
+},
+{
+    
+    "title": "Sale Post 1",
+    "description": "this is a test post 1",
+    "user_id": "2",
+    "category": "indoor",
+    "location": "buckhead"
+},
+{
+  
+    "title": "Sale Post 1",
+    "description": "this is a test post 1",
+    "user_id": "3",
+    "category": "indoor",
+    "location": "dacula"
+}
+]
