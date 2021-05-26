@@ -19,3 +19,4 @@ function Plant({ image, type, seller, description, location, Button }) {
 }
 
 export default Plant;
+
