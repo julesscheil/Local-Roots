@@ -5,7 +5,7 @@ const {
 } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {}
+class ForumPost extends Model {}
 
 Post.init(
   {
@@ -14,7 +14,7 @@ Post.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    }
+    },
   title: DataTypes.STRING,
   description: DataTypes.STRING,
   image: {
@@ -27,4 +27,4 @@ Post.init(
   sequelize
 });
 
-module.exports = Post;
+module.exports = ForumPost;
