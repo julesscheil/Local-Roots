@@ -3,6 +3,7 @@ const ForSalePost= require('./forSalePost');
 const ForSaleComment= require('./forSaleComment');
 const ForumPost= require('./forumPost');
 const ForumComment= require('./forumComment');
+const SavedPost = require('./saved');
 
 ForSalePost.belongsTo(User, {
     foreignKey: 'user_id',
@@ -34,11 +35,22 @@ ForumComment.belongsTo(User, {
     onDelete: 'CASCADE'
 })
 
+SavedPost.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+})
+
+ForSalePost.hasMany(SavedPost, {
+    foreignKey: 'sale_post_id',
+    onDelete: 'CASCADE'
+})
+
 module.exports = {
     User,
     ForSalePost,
     ForSaleComment,
     ForumPost,
-    ForumComment
+    ForumComment,
+    SavedPost
 };
   

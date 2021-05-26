@@ -1,11 +1,11 @@
 const sequelize = require('../config/connection');
-const { User, ForumPost, ForSalePost, ForSaleComment, ForumComment } = require('../models');
+const { User, ForumPost, ForSalePost, ForSaleComment, ForumComment, SavedPost } = require('../models');
 const userData = require('./userData.json');
 const forumPostData = require('./forumPostData.json');
 const forumCommentData = require('./forumComments.json');
 const forSalePostData = require('./forSalePostData.json');
 const forSaleCommentData = require('./forSaleComments.json');
-
+const savedPostData = require('./savedPost.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -28,6 +28,10 @@ const seedDatabase = async () => {
   });
 
   const forumComment = await ForumComment.bulkCreate(forumCommentData, {
+    returning: true,
+  });
+
+  const savedPost = await SavedPost.bulkCreate(savedPostData, {
     returning: true,
   });
 
