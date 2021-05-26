@@ -12,5 +12,8 @@ export default {
   },
   getSales: function() {
     return axios.get("/api/sales");
+  },
+  createSale: function(saleData) {
+    return axios.post("/api/sales", saleData);
   }
 };
