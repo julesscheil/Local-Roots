@@ -32,13 +32,13 @@ const handleLogout = (event) => {
   return (
     <Router>
       <Navbar bg="light" variant="light">
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Navbar.Brand href="#home">Local Roots</Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="/">Home</Nav.Link>
       <Nav.Link href="/forum">Forum</Nav.Link>
-      <Nav.Link href="/favorites">favorites</Nav.Link>
+      <Nav.Link href="/favorites">Favorites</Nav.Link>
       <Nav.Link href="/forsale">For Sale</Nav.Link>
-      <div class="btn btn-outline-secondary">
+      <div className="btn btn-outline-secondary">
       <Button  onClick={handleLogout}>Logout</Button>
     </div>
     {/* <Form inline>
