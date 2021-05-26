@@ -38,46 +38,55 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <Container>
+    <div className="form-group">
       <h1>Signup Form</h1>
       <form onSubmit={handleSignup}>
-        <input
+        <input type="name" className="form-control"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <input
+        <div className="form-group">
+        <input type="email" className="form-control"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
+        </div>
+        <div className="form-group">
+        <input type="password" className="form-control"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        </div>
         <button type="submit">Signup</button>
       </form>
+
+    
       <h1>Login Form</h1>
+      <div className="form-group">
       <form onSubmit={handleLogin}>
-        <input
+        <input type="email" className="form-control"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
+        
+        <input type="password" className="form-control"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Login</button>
-      </form>
+     </form>
+     </div> 
       <button onClick={handleLogout}>Logout</button>
     </div>
-
-
+      </Container>
   );
 };
 
