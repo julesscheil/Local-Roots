@@ -9,7 +9,7 @@ const {
   
   Post.init(
     {
-      form_post_id: {
+      sale_post_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,

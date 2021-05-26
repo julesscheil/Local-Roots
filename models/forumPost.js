@@ -9,20 +9,14 @@ class ForumPost extends Model {}
 
 Post.init(
   {
-    form_post_id: {
+    forum_post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
   title: DataTypes.STRING,
-  description: DataTypes.STRING,
-  image: {
-    type: DataTypes.STRING,
-    default: "default.png"
-  },
-  category: DataTypes.STRING,
-  location: DataTypes.STRING,
+  description: DataTypes.STRING
 }, {
   sequelize
 });
