@@ -1,0 +1,19 @@
+[{
+        "forum_post_id": "1",
+        "title": "Forum Post 1",
+        "description": "this is a test post 1",
+        "user_id": "1"
+    },
+    {
+        "forum_post_id": "2",
+        "title": "Forum Post 2",
+        "description": "this is a test post 2",
+        "user_id": "1"
+    },
+    {
+        "forum_post_id": "1",
+        "title": "Forum Post second user",
+        "description": "this is a test post",
+        "user_id": "2"
+    }
+]
