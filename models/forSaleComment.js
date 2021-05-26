@@ -15,7 +15,6 @@ const {
         primaryKey: true,
         autoIncrement: true,
       },
-    title: DataTypes.STRING,
     description: DataTypes.STRING,
   }, {
     sequelize

@@ -25,7 +25,7 @@ ForumPost.belongsTo(User, {
 })
 
 ForumPost.hasMany(ForumComment, {
-    foreignKey: 'sale_post_id',
+    foreignKey: 'forum_post_id',
     onDelete: 'CASCADE'
 })
 
