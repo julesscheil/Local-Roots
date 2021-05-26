@@ -1,11 +1,18 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
-
 import API from "../../utils/API";
 import "./style.css";
+
 const Sale = () => {
+  const [sales, setSales] = useState([]);
+
+  useEffect(() => {
+    API.getSales(sales)
+      .then((res) => setSales({ sales: res.data }))
+      .catch((err) => console.log(err));
+  }, [sales]);
+
   return (
     <Container>
       <Row>

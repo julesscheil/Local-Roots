@@ -10,4 +10,7 @@ export default {
   userLogout: function () {
     return axios.post("/api/users/logout", { withCredentials: true });
   },
+  getSales: function() {
+    return axios.get("/api/sales");
+  }
 };
