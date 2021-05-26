@@ -3,13 +3,13 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 // import API from "../../utils/API";
 import "./style.css";
-import ForumCard from '../../components/ForSaleCard/index'
+import ForSaleCard from '../../components/ForSaleCard/index'
 const Sale = () => {
  
   return (
     <Container>
-      <Row><h4>hello</h4>
-      <ForumCard />
+      <Row><h2>Plants For Sale</h2>
+      <ForSaleCard />
         {/* {sales.map((sale) => {
           return (
             <Card style={{ width: "18rem" }}>

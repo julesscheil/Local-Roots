@@ -1,66 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Card, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import API from "../../utils/API";
+import "./style.css";
 
-function Search(props) {
-  const [books, setBooks] = useState([]);
-  const [bookSearch, setBookSearch] = useState("");
+const Post = () => {
+  const [forum, setForum] = useState([]);
 
-  function searchApi(event) {
-    event.preventDefault();
-    API.searchBooks(bookSearch)
-      .then((apiData) => {
-        setBooks(apiData.data.items);
-        console.log(apiData.data.items);
+  useEffect(() => {
+    API.getForumPost(forum)
+      .then((res) => {
+        setForum(res.data);
       })
       .catch((err) => console.log(err));
-  }
-
-  const handleInputChange = (event) => {
-    const { value } = event.target;
-    setBookSearch(value);
-  };
-
-  const saveBook = (id) => {
-    const book = books.find((book) => book.id === id);
-    API.saveBook({
-      title: book.volumeInfo.title,
-      authors: book.volumeInfo.authors,
-      description: book.volumeInfo.description,
-      image: book.volumeInfo.imageLinks.smallThumbnail,
-      link: book.volumeInfo.previewLink,
-    });
-  };
-
+  }, []);
+console.log(forum);
   return (
-    <div>
-      <h3>Book Search</h3>
-      <form>
-        <input value={bookSearch} onChange={handleInputChange}></input>
-        <button onClick={searchApi}>Submit</button>
-      </form>
-      {!books.length ? (
-        <h3>No Books Return</h3>
-      ) : (
-        <div>
-          <h3>Results</h3>
-          {books.map((book) => {
-            return (
-              <div key={book.id}>
-                <h4>{book.volumeInfo.title}</h4>
-                <h5>{book.volumeInfo.authors}</h5>
-                <p>{book.volumeInfo.description}</p>
-                <img src={book.volumeInfo.imageLinks.smallThumbnail} />
-                <a href={book.volumeInfo.previewLink} target="_blank">
-                  Link
-                </a>
-                <button onClick={() => saveBook(book.id)}>Save</button>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </div>
+    <Container>
+      <Row>
+        {forum.map((forums) => {
+          return (
+            <Card style={{ width: "18rem" }}>
+              <Card.Body>
+                <h4>{forums.title}</h4>
+                <Card.Text>{forums.description}</Card.Text>
+                <Button variant="primary">Inquire</Button>
+              </Card.Body>
+            </Card>
+          );
+        })}
+      </Row>
+    </Container>
   );
-}
+};
 
-export default Search;
+export default Post;
