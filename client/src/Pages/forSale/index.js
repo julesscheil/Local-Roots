@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Card, Button } from "react-bootstrap";
+import React from "react";
+// import { Card, Button } from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import "./style.css";
-
+import ForumCard from '../../components/ForSaleCard/index'
 const Sale = () => {
-  const [sales, setSales] = useState([]);
-
-  useEffect(() => {
-    API.getSales(sales)
-      .then((res) => {
-        setSales(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-console.log(sales)
+ 
   return (
     <Container>
-      <Row>
-        {sales.map((sale) => {
+      <Row><h4>hello</h4>
+      <ForumCard />
+        {/* {sales.map((sale) => {
           return (
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={sale.image} />
@@ -30,7 +22,7 @@ console.log(sales)
               </Card.Body>
             </Card>
           );
-        })}
+        })} */}
       </Row>
     </Container>
   );
