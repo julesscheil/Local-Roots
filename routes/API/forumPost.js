@@ -3,8 +3,8 @@ const forumPostController = require("../../controllers/forumPostController");
 
 // Matches with "/api/books"
 router.route("/")
-    .get(salesController.findAll)
-    .post(salesController.create);
+    .get(forumPostController.findAll)
+    .post(forumPostController.create);
 
 // // Matches with "/api/books/:id"
 // router

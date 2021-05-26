@@ -5,27 +5,25 @@ import API from "../../utils/API";
 import "./style.css";
 
 const Post = () => {
-  const [sales, setSales] = useState([]);
+  const [forum, setForum] = useState([]);
 
   useEffect(() => {
-    API.getSales(sales)
+    API.getForumPost(forum)
       .then((res) => {
-        setSales(res.data);
+        setForum(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
-
+console.log(forum);
   return (
     <Container>
       <Row>
-        {sales.map((sale) => {
+        {forum.map((forums) => {
           return (
             <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={sale.image} />
               <Card.Body>
-                <h4>{sale.title}</h4>
-                <Card.Title>{sale.location}</Card.Title>
-                <Card.Text>{sale.description}</Card.Text>
+                <h4>{forums.title}</h4>
+                <Card.Text>{forums.description}</Card.Text>
                 <Button variant="primary">Inquire</Button>
               </Card.Body>
             </Card>
