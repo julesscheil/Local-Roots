@@ -11,6 +11,9 @@ const Home = () => {
     API.userSignup({ name, email, password })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    setName("");
+    setEmail("");
+    setPassword("");
   };
 
   const handleLogin = (event) => {
@@ -18,16 +21,18 @@ const Home = () => {
     API.userLogin({ email, password })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    setEmail("");
+    setPassword("");
   };
 
   const handleLogout = (event) => {
     event.preventDefault();
-    setName("");
-    setEmail("");
-    setPassword("");
     API.userLogout()
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    setName("");
+    setEmail("");
+    setPassword("");
   };
 
   return (
@@ -45,6 +50,7 @@ const Home = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -59,6 +65,7 @@ const Home = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

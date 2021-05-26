@@ -8,6 +8,6 @@ export default {
     return axios.post("/api/users/login", userData);
   },
   userLogout: function () {
-    return axios.post("/api/users/logout");
-  }
+    return axios.post("/api/users/logout", { withCredentials: true });
+  },
 };
