@@ -7,7 +7,7 @@ const {
   
   class ForSalePost extends Model {}
   
-  Post.init(
+  ForSalePost.init(
     {
       sale_post_id: {
         type: DataTypes.INTEGER,

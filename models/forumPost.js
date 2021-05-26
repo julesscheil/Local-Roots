@@ -7,7 +7,7 @@ const sequelize = require('../config/connection');
 
 class ForumPost extends Model {}
 
-Post.init(
+ForumPost.init(
   {
     forum_post_id: {
       type: DataTypes.INTEGER,

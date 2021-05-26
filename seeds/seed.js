@@ -12,7 +12,7 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  const forumpost = await ForumPost.bulkCreate(forumPostData, {
+  const forumPost = await ForumPost.bulkCreate(forumPostData, {
 
   });
 

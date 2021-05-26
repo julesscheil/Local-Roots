@@ -7,7 +7,7 @@ const {
   
   class ForumComment extends Model {}
   
-  Post.init(
+  ForumComment.init(
     {
       forum_comment_id: {
         type: DataTypes.INTEGER,
