@@ -22,10 +22,10 @@ function App() {
       <Nav.Link href="/forsale">For Sale</Nav.Link>
       <Nav.Link href="#pricing">Logout</Nav.Link>
     </Nav>
-    <Form inline>
+    {/* <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
       <Button variant="outline-primary">Search</Button>
-    </Form>
+    </Form> */}
   </Navbar>
       <div className="App">
         <Switch>
