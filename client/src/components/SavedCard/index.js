@@ -4,25 +4,25 @@ import { Container, Row, Col } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
 
-const Post = () => {
-  const [forum, setForum] = useState([]);
+const Favorites = () => {
+  const [favorites, setfavorites] = useState([]);
 
   useEffect(() => {
-    API.getForumPost(forum)
+    API.getFavorites(favorites)
       .then((res) => {
-        setForum(res.data);
+        setfavorites(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
   return (
     <Container>
       <Row>
-        {forum.map((forums) => {
+        {favorites.map((favorite) => {
           return (
             <Card style={{ width: "18rem" }}>
               <Card.Body>
-                <h4>{forums.title}</h4>
-                <Card.Text>{forums.description}</Card.Text>
+                <h4>{favorite.user_id}</h4>
+                <Card.Text>{favorite.sale_post_id}</Card.Text>
                 <Button variant="primary">Inquire</Button>
               </Card.Body>
             </Card>
@@ -33,4 +33,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default Favorites;

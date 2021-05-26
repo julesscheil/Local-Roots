@@ -14,7 +14,6 @@ function Plant() {
       })
       .catch((err) => console.log(err));
   }, []);
-console.log(sales)
   return (
     <Container>
       <Row>

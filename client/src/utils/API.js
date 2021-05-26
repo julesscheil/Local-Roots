@@ -19,4 +19,7 @@ export default {
   getForumPost: function() {
     return axios.get("/api/forum");
   },
+  getFavorites: function() {
+    return axios.get("/api/favorites");
+  },
 };
