@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Container, Row, Col } from 'react-bootstrap';
 import API from "../../utils/API";
+import "../Login/style.css"
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -74,6 +76,8 @@ const Home = () => {
       </form>
       <button onClick={handleLogout}>Logout</button>
     </div>
+
+
   );
 };
 
