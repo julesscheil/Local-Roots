@@ -3,7 +3,12 @@ const db = require("../models");
 // Defining methods for the bookController
 module.exports = {
   findAll: function (req, res) {
-    db.ForSalePost.findAll({ raw: true })
+    db.ForSalePost.findAll({ raw: true,
+    // include: [{
+    //   model:db.ForSaleComment,
+    //   where: {  }
+    // }]
+    })
       .then((dbSales) => {
         console.log(dbSales);
         res.json(dbSales);
