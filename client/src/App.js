@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import { Redirect } from 'react-router';
 import SaleCard from "./components/ForSaleCard/index";
 import ForumCard from "./components/ForumCard/index";
 import { Nav, Form, FormControl, Button, Container } from "react-bootstrap";
@@ -19,13 +18,15 @@ function App() {
   const [newEmail, setNewEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userId, setUserId] = useState(null);
 
   const handleSignup = (event) => {
     event.preventDefault();
     API.userSignup({ name, email: newEmail, password: newPassword })
       .then((res) => {
         console.log(res);
-        setLoggedIn(true);
+        setLoggedIn(res.data.logged_in);
+        setUserId(res.data.user_id);
 // Redirect to for sale page
       })
       .catch((err) => console.log(err));
@@ -39,7 +40,8 @@ function App() {
     API.userLogin({ email, password })
       .then((res) => {
         console.log(res);
-        setLoggedIn(true);
+        setLoggedIn(res.data.logged_in);
+        setUserId(res.data.user_id);
         // return <Redirect to="/forsale" />;
       })
       .catch((err) => console.log(err));
