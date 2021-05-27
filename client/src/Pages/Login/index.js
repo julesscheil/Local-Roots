@@ -23,7 +23,7 @@ const Home = (props) => {
     API.userLogin({ email, password })
       .then((res) => {
         console.log(res);
-        props.setLoggedIn(true);
+        // props.setLoggedIn(true);
       })
       .catch((err) => console.log(err));
     setEmail("");
