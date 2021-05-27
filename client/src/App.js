@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { Redirect } from 'react-router';
 import SaleCard from "./components/ForSaleCard/index";
 import ForumCard from "./components/ForumCard/index";
 import { Nav, Form, FormControl, Button, Container } from "react-bootstrap";
@@ -21,10 +22,11 @@ function App() {
 
   const handleSignup = (event) => {
     event.preventDefault();
-    API.userSignup({ name, newEmail, newPassword })
+    API.userSignup({ name, email: newEmail, password: newPassword })
       .then((res) => {
         console.log(res);
         setLoggedIn(true);
+// Redirect to for sale page
       })
       .catch((err) => console.log(err));
     setName("");
@@ -38,6 +40,7 @@ function App() {
       .then((res) => {
         console.log(res);
         setLoggedIn(true);
+        // return <Redirect to="/forsale" />;
       })
       .catch((err) => console.log(err));
     setEmail("");
@@ -54,7 +57,10 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  // useeffect function to call backend and set correct login/logout when page loads
+  // TODO: useeffect function to call backend and set correct login/logout when page loads
+//   useEffect(() => {
+// API.checkLogin()
+//   }, [])
 
   return (
     <Router>
