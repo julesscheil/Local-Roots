@@ -3,12 +3,13 @@ const salePost = require('../models/forSalePost');
 // Defining methods for the bookController
 module.exports = {
   findAll: function (req, res) {
-    db.SavedPost.findAll({
-    include: [{
-        model: salePost,
-        attributes: ["title", "description", "location", "image","category"],
-        where: {user_id: req.session.user_id}
-    }] })
+    db.SavedPost.findAll({ raw: true,
+    // include: [{
+    //     model: salePost,
+    //     attributes: ["title", "description", "location", "image","category"],
+    //     where: {user_id: req.session.user_id}
+    // }] 
+})
       .then((dbSaved) => {
         console.log(dbSaved);
         res.json(dbSaved);
