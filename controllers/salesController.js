@@ -4,10 +4,13 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
     db.ForSalePost.findAll({ raw: true,
-    // include: [{
-    //   model:db.ForSaleComment,
-    //   where: {  }
-    // }]
+      include: [
+        db.User,
+        {
+          model: db.ForSaleComment,
+          include: [db.User],
+        },
+      ],
     })
       .then((dbSales) => {
         console.log(dbSales);
