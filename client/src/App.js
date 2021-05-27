@@ -24,11 +24,15 @@ function App() {
   const [password, setPassword] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleSignup = (event) => {
     event.preventDefault();
     API.userSignup({ name, newEmail, newPassword })
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        setLoggedIn(true);
+      })
       .catch((err) => console.log(err));
     setName("");
     setNewEmail("");
@@ -53,22 +57,24 @@ function App() {
 
   return (
     <Router>
-      <Navbar bg="light" variant="light">
-        <Navbar.Brand href="#home">Local Roots</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/forum">Forum</Nav.Link>
-          <Nav.Link href="/favorites">Favorites</Nav.Link>
-          <Nav.Link href="/forsale">For Sale</Nav.Link>
-          <div className="btn btn-outline-secondary">
-            <Button onClick={handleLogout}>Logout</Button>
-          </div>
-          {/* <Form inline>
+      {
+        <Navbar bg="light" variant="light">
+          <Navbar.Brand href="#home">Local Roots</Navbar.Brand>
+          <Nav className="mr-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/forum">Forum</Nav.Link>
+            <Nav.Link href="/favorites">Favorites</Nav.Link>
+            <Nav.Link href="/forsale">For Sale</Nav.Link>
+            <div className="btn btn-outline-secondary">
+              <Button onClick={handleLogout}>Logout</Button>
+            </div>
+            {/* <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
       <Button variant="outline-primary">Search</Button>
     </Form> */}
-        </Nav>
-      </Navbar>
+          </Nav>
+        </Navbar>
+      }
       <div className="App">
         <Switch>
           <Route exact path="/">
