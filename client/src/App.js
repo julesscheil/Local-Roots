@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SaleCard from "./components/ForSaleCard/index";
 import ForumCard from "./components/ForumCard/index";
-<<<<<<< HEAD
 import {
   Nav,
   Form,
@@ -11,9 +10,6 @@ import {
   Button,
   Container,
 } from "react-bootstrap";
-=======
-import { Nav, Form, FormControl, Button} from "react-bootstrap";
->>>>>>> 87928b902d6af04b8be4d2f0f53a9a0db1580cd4
 import Favorites from "./Pages/Favorites/index";
 import Sale from "./Pages/forSale/index";
 import forumPosts from "./Pages/forumPosts/index";
