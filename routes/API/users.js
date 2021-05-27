@@ -57,4 +57,6 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// create similar to logout route when loading the page to determine from session whether logged in (isLoggedIn)
+
 module.exports = router;

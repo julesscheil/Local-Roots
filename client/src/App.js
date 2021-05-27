@@ -2,20 +2,12 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SaleCard from "./components/ForSaleCard/index";
 import ForumCard from "./components/ForumCard/index";
-import {
-  Nav,
-  Form,
-  Navbar,
-  FormControl,
-  Button,
-  Container,
-} from "react-bootstrap";
+import { Nav, Form, FormControl, Button, Container } from "react-bootstrap";
 import Favorites from "./Pages/Favorites/index";
 import Sale from "./Pages/forSale/index";
 import forumPosts from "./Pages/forumPosts/index";
-import Home from "./Pages/Login/index";
-import NoMatch from "./Pages/NoMatch/index"
-import Navbar from "./components/NavBar"
+import NoMatch from "./Pages/NoMatch/index";
+import Navbar from "./components/NavBar";
 import API from "./utils/API";
 import "./App.css";
 
@@ -43,7 +35,10 @@ function App() {
   const handleLogin = (event) => {
     event.preventDefault();
     API.userLogin({ email, password })
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        setLoggedIn(true);
+      })
       .catch((err) => console.log(err));
     setEmail("");
     setPassword("");
@@ -52,16 +47,21 @@ function App() {
   const handleLogout = (event) => {
     event.preventDefault();
     API.userLogout()
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        setLoggedIn(false);
+      })
       .catch((err) => console.log(err));
   };
 
+  // useeffect function to call backend and set correct login/logout when page loads
+
   return (
     <Router>
-      {loggedIn && <Navbar handleLogout = {handleLogout}/>}
+      {loggedIn && <Navbar handleLogout={handleLogout} />}
       <div className="App">
         <Switch>
-        <Route exact path="/">
+          <Route exact path="/">
             <Container>
               <div className="form-group">
                 <h1>Signup Form</h1>
