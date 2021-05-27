@@ -1,5 +1,10 @@
-import React, {useState} from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import React from "react";
+
+import { Card, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+
+
+import API from "../../utils/API";
 import "./style.css";
 import ForSaleCard from '../../components/ForSaleCard/index'
 import ForSalePostCard from '../../components/ForSalePostCard/index';
