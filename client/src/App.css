@@ -1,5 +1,18 @@
 .App {
-    background-color: darkseagreen;
-    padding-top: 80px;
-    padding-bottom: 200px;
+    /* color: darkslategray; */
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-top: 45px;
+    padding-bottom: 300px;
+}
+
+.signin {
+    color: darkslategray;
+}
+
+.login {
+    color: darkslategray; 
+}
+
+.container{
+padding-top: 85px;
 }

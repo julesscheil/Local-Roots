@@ -6,12 +6,14 @@ import FavoriteCard from '../../components/SavedCard/index'
 const Post = () => {
 
   return (
+    <div className="everything">
     <Container>
       <Row>
       <h2>Your Favorite Greenery</h2>
       <FavoriteCard />
       </Row>
     </Container>
+    </div>
   );
 };
 
