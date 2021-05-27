@@ -3,21 +3,16 @@ const db = require("../models");
 // Defining methods for the bookController
 module.exports = {
   findAll: function (req, res) {
-    db.ForSalePost.findAll({ raw: true,
-    // include: [{
-    //   model:db.ForSaleComment,
-    //   where: {  }
-    // }]
-    })
-      .then((dbSales) => {
-        console.log(dbSales);
-        res.json(dbSales);
+    db.ForumPost.findAll({ raw: true })
+      .then((dbForum) => {
+        console.log(dbForum);
+        res.json(dbForum);
       })
       .catch((err) => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.ForSalePost.create(req.body)
-      .then(dbSales => res.json(dbSales))
+    db.ForumPost.create(req.body)
+      .then(dbForum => res.json(dbForum))
       .catch(err => res.status(422).json(err));
   },
   //   findById: function(req, res) {

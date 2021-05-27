@@ -1,9 +1,18 @@
 import React from "react";
-const Post = () => {
-    return (
-        <h1>hello world</h1>
-    )
+import { Container, Row, Col } from "react-bootstrap";
+import "./style.css";
+import ForumCard from '../../components/ForumCard/index'
 
-}
+const Post = () => {
+
+  return (
+    <Container>
+      <Row>
+      <h2>People are talking about...</h2>
+      <ForumCard />
+      </Row>
+    </Container>
+  );
+};
 
 export default Post;

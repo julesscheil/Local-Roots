@@ -15,5 +15,11 @@ export default {
   },
   createSale: function(saleData) {
     return axios.post("/api/sales", saleData);
-  }
+  },
+  getForumPost: function() {
+    return axios.get("/api/forum");
+  },
+  getFavorites: function() {
+    return axios.get("/api/favorites");
+  },
 };

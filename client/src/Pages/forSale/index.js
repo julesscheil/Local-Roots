@@ -1,37 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { Card, Button } from "react-bootstrap";
-import { Container, Row, Col } from "react-bootstrap";
-import API from "../../utils/API";
+import React, {useState} from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./style.css";
-
+import ForSaleCard from '../../components/ForSaleCard/index'
+import ForSalePostCard from '../../components/ForSalePostCard/index';
 const Sale = () => {
-  const [sales, setSales] = useState([]);
-
-  useEffect(() => {
-    API.getSales(sales)
-      .then((res) => {
-        setSales(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
     <Container>
-      <Row>
-        {sales.map((sale) => {
-          return (
-            <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src={sale.image} />
-              <Card.Body>
-                <h4>{sale.title}</h4>
-                <Card.Title>{sale.location}</Card.Title>
-                <Card.Text>{sale.description}</Card.Text>
-                <Button variant="primary">Inquire</Button>
-              </Card.Body>
-            </Card>
-          );
-        })}
+      <Row><h2>Plants For Sale</h2>
+      <ForSaleCard />
       </Row>
+      <div className="container">
+        <div className="post card">
+          <div className="card-header">
+            <h2>Create New Post</h2>
+          </div>
+       <ForSalePostCard />
+        </div>
+
+      </div> 
     </Container>
   );
 };
