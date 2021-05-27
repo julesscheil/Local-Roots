@@ -1,7 +1,10 @@
 import React from "react";
+<<<<<<< Updated upstream
 import { Container, Row, Col } from "react-bootstrap";
 import "./style.css";
 import ForumCard from '../../components/ForumCard/index'
+=======
+>>>>>>> Stashed changes
 
 const Post = () => {
 
