@@ -14,7 +14,8 @@ const Favorites = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  return (
+  console.log(favorites);
+   return (
     <Container>
       <Row>
         {favorites.map((favorite) => {
