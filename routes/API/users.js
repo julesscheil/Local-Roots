@@ -9,13 +9,11 @@ router.post("/signup", async (req, res) => {
       req.session.user_id = userData.user_id;
       req.session.logged_in = true;
 
-      res
-        .status(200)
-        .json({
-          logged_in: true,
-          user_id: userData.user_id,
-          message: "You are now signed up!",
-        });
+      res.status(200).json({
+        logged_in: true,
+        user_id: userData.user_id,
+        message: "You are now signed up!",
+      });
     });
   } catch (err) {
     res.status(400).json(err);
@@ -54,6 +52,20 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.post("/session", (req, res) => {
+  if (req.sessionID) {
+    req.session.reload(() => {
+      res.json({
+        logged_in: true,
+        user_id: req.session.user_id,
+        message: "You are logged in.",
+      });
+    });
+  } else {
+    res.status(404).end();
   }
 });
 

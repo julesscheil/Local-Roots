@@ -7,6 +7,7 @@ const routes = require("./routes");
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+// cookie never expires
 const sess = {
   secret: 'Super secret secret',
   cookie: {},
