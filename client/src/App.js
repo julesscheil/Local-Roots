@@ -27,7 +27,6 @@ function App() {
         console.log(res);
         setLoggedIn(res.data.logged_in);
         setUserId(res.data.user_id);
-        history.push("/forsale");
       })
       .catch((err) => console.log(err));
   }, []);
@@ -76,7 +75,6 @@ function App() {
     <div>
       {loggedIn && <Navbar handleLogout={handleLogout} />}
       <div className="App">
-        {/* TODO: add redirect to For Sale from react router dom for loggedin */}
         <Switch>
           <Route exact path="/">
             <Container>
