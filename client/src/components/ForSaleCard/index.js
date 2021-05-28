@@ -20,7 +20,7 @@ function ForSaleCard() {
   })
   .catch((err)=> console.log(err))
     }, []);
-    
+
   console.log(sales);
   console.log(comments, "comment");
 
@@ -30,24 +30,41 @@ function ForSaleCard() {
     <Container>
       <Row>
     {sales.map((sale) => {
-          return (
-// {filteredComment.map()}
-    <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="./images/plantspic.png" />
-  <Card.Body>
-    <Card.Title>{sale.title}</Card.Title>
-    <h4>{sale.location}</h4>
-    <Card.Text>
-      {sale.description}
-      {sale.createdAt}
-    </Card.Text>
-    <Button variant="primary">Inquire</Button>
-  </Card.Body>
-</Card>
-   );
-  })}
-  </Row>
-</Container>
+      const id=sale.sale_post_id;
+      // console.log(id);
+     const filtered= comments.filter(comment => comment.sale_post_id === id).map((mapped)=>{
+       return (
+         <div className="container">
+         <div>{mapped.description} </div>
+         <div>--------------------</div>
+         </div>
+       )
+        
+     })
+      
+      return (
+            
+          <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src="./images/plantspic.png" />
+        <Card.Body>
+          <Card.Title>{sale.title}</Card.Title>
+          <h4>{sale.location}</h4>
+          <Card.Text>
+            {sale.description}
+            {sale.createdAt}
+          </Card.Text>
+          <Button variant="primary">Inquire</Button>
+          <h4>Inquiries</h4>
+          {filtered}
+        </Card.Body>
+      </Card>
+        );
+      })
+      // console.log(filtered, "filter");
+          
+        }
+        </Row>
+      </Container>
   );
 }
 

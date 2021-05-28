@@ -5,7 +5,6 @@ const salesController = require("../../controllers/salesController");
 router.route("/")
     .get(salesController.findAll)
     .post(salesController.create)
-    .get(salesController.findComment);
 
     router.route("/comment")
     .get(salesController.findComment)
