@@ -4,10 +4,6 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
     db.ForSalePost.findAll({ raw: true,
-    // include: [{
-    //   model:db.ForSaleComment,
-    //   where: {  }
-    // }]
     })
       .then((dbSales) => {
         console.log(dbSales);
@@ -19,6 +15,18 @@ module.exports = {
     db.ForSalePost.create(req.body)
       .then(dbSales => res.json(dbSales))
       .catch(err => res.status(422).json(err));
+  },
+  findComment: function (req, res) {
+    db.ForSaleComment.findAll({ raw: true,
+      // include: [
+      //   db.User
+      // ],
+    })
+      .then((dbComment) => {
+        console.log(dbComment);
+        res.json(dbComment);
+      })
+      .catch((err) => res.status(422).json(err));
   },
   //   findById: function(req, res) {
   //     db.Book.findById(req.params.id)
