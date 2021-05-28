@@ -73,8 +73,8 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Container className="container">
-                <CardDeck>
-                  <Card style={{ width: "18rem" }}>
+                <CardDeck >
+                  <Card className="card" style={{ width: "18rem" }}>
                     <div className="form-group">
                     <div
                         style={{
@@ -83,7 +83,7 @@ function App() {
                           alignItems: "center",
                         }}
                       >
-                      <h1 className="signin">Signup Form</h1>
+                      <h1 className="signup">Signup Form</h1>
                       </div>
                       <form onSubmit={handleSignup} />
                       <input
@@ -105,7 +105,7 @@ function App() {
                     </div>
                     <div className="form-group">
                       <input
-                        type="password"
+                        
                         className="form-control"
                         type="password"
                         placeholder="Password"
@@ -113,7 +113,7 @@ function App() {
                         onChange={(e) => setNewPassword(e.target.value)}
                       />
                     </div>
-                    <button type="submit">Signup</button>
+                    <button class="btn btn-success" type="submit">Signup</button>
                   </Card>
 
                   <Card style={{ width: "18rem" }}>
@@ -138,7 +138,7 @@ function App() {
                     </div>
                     <div className="form-group">
                       <input
-                        type="password"
+                        
                         className="form-control"
                         type="password"
                         placeholder="Password"
@@ -146,7 +146,7 @@ function App() {
                         onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
-                    <button type="submit">Login</button>
+                    <button class="btn btn-success" variant="outline-success" type="submit">Login</button>
                   </Card>
                 </CardDeck>
               </Container>

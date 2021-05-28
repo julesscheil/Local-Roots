@@ -29,7 +29,7 @@ function NavComponent(props) {
   <div className="button"
                         style={{
                           display: "flex",
-                          justifyContent: "right",
+               
                           alignItems: "center",
                         }}
                       >

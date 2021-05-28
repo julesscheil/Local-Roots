@@ -17,14 +17,16 @@ const Favorites = () => {
   console.log(favorites);
    return (
     <Container>
-      <Row>
+      <Row className="row+">
         {favorites.map((favorite) => {
           return (
-            <Card style={{ width: "18rem" }}>
+            <Card className="card" style={{ width: "18rem" }}>
               <Card.Body>
-                <h4>{favorite.user_id}</h4>
+                
+                <h3>{favorite.user_id}</h3>
+                
                 <Card.Text>{favorite.sale_post_id}</Card.Text>
-                <Button variant="primary">Inquire</Button>
+                <Button variant="success">Inquire</Button>
               </Card.Body>
             </Card>
           );

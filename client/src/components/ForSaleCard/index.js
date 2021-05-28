@@ -17,26 +17,26 @@ function Plant() {
   return (
     <Container>
       <Row>
-    {sales.map((sale) => {
+        {sales.map((sale) => {
           return (
-
-    <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="./images/plantspic.png" />
-  <Card.Body>
-    <Card.Title>{sale.title}</Card.Title>
-    <h4>{sale.location}</h4>
-    <Card.Text>
-      {sale.description}
-    </Card.Text>
-    <Button variant="primary">Inquire</Button>
-  </Card.Body>
-</Card>
-   );
-  })}
-  </Row>
-</Container>
+            <Card
+              style={{
+                width: "18rem",
+              }}
+            >
+              <Card.Img variant="top" src="./images/plantspic.png" />
+              <Card.Body>
+                <Card.Title>{sale.title}</Card.Title>
+                <h4>{sale.location}</h4>
+                <Card.Text>{sale.description}</Card.Text>
+                <Button variant="success">Inquire</Button>
+              </Card.Body>
+            </Card>
+          );
+        })}
+      </Row>
+    </Container>
   );
 }
 
 export default Plant;
-
