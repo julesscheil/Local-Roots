@@ -6,12 +6,16 @@ import "./style.css";
 
 const Post = () => {
   const [forum, setForum] = useState([]);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     API.getForumPost(forum)
       .then((res) => {
         setForum(res.data);
       })
+      .catch((err) => console.log(err));
+    API.getForSaleComment(comments)
+      .then((res) => {git 
       .catch((err) => console.log(err));
   }, []);
   return (
