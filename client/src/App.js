@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Route, Switch, useHistory } from "react-router-dom";
 import SaleCard from "./components/ForSaleCard/index";
 import ForumCard from "./components/ForumCard/index";
 import { Nav, Form, FormControl, Button, Container } from "react-bootstrap";
@@ -17,14 +17,29 @@ function App() {
   const [password, setPassword] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const history = useHistory();
+
+  useEffect(() => {
+    API.checkLogin({})
+      .then((res) => {
+        console.log(res);
+        setLoggedIn(res.data.logged_in);
+        setUserId(res.data.user_id);
+        history.push("/forsale");
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const handleSignup = (event) => {
     event.preventDefault();
-    API.userSignup({ name, newEmail, newPassword })
+    API.userSignup({ name, email: newEmail, password: newPassword })
       .then((res) => {
         console.log(res);
-        setLoggedIn(true);
+        setLoggedIn(res.data.logged_in);
+        setUserId(res.data.user_id);
+        history.push("/forsale");
       })
       .catch((err) => console.log(err));
     setName("");
@@ -37,7 +52,9 @@ function App() {
     API.userLogin({ email, password })
       .then((res) => {
         console.log(res);
-        setLoggedIn(true);
+        setLoggedIn(res.data.logged_in);
+        setUserId(res.data.user_id);
+        history.push("/forsale");
       })
       .catch((err) => console.log(err));
     setEmail("");
@@ -50,16 +67,16 @@ function App() {
       .then((res) => {
         console.log(res);
         setLoggedIn(false);
+        setUserId(null);
       })
       .catch((err) => console.log(err));
   };
 
-  // useeffect function to call backend and set correct login/logout when page loads
-
   return (
-    <Router>
+    <div>
       {loggedIn && <Navbar handleLogout={handleLogout} />}
       <div className="App">
+        {/* TODO: add redirect to For Sale from react router dom for loggedin */}
         <Switch>
           <Route exact path="/">
             <Container>
@@ -121,11 +138,13 @@ function App() {
           </Route>
           <Route exact path="/forsale" component={Sale} />
           <Route exact path="/forum" component={forumPosts} />
-          <Route exact path="/favorites" component={Favorites} />
+          <Route exact path="/favorites">
+            <Favorites user_id={userId} />
+          </Route>
           <Route component={NoMatch} />
         </Switch>
       </div>
-    </Router>
+    </div>
   );
 }
 
