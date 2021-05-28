@@ -3,8 +3,9 @@ import { Container, Row, Col, CardGroup, Card } from "react-bootstrap";
 import "./style.css";
 import FavoriteCard from '../../components/SavedCard/index'
 
-const Post = () => {
+const Favorites = (props) => {
 
+  console.log(props.user_id);
   return (
     <div >
     <Container>
@@ -18,8 +19,8 @@ const Post = () => {
                           alignItems: "center",
                         }}
                       > 
-      <h2> Your Favorite Greenery </h2>
      
+      <h2>Favorites</h2>
       <FavoriteCard />
       </Card> 
       
@@ -30,4 +31,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default Favorites;
