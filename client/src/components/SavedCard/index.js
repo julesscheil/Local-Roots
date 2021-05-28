@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
 
-const Favorites = () => {
+const FavoriteCard = () => {
   const [favorites, setfavorites] = useState([]);
 
   useEffect(() => {
@@ -34,4 +34,4 @@ const Favorites = () => {
   );
 };
 
-export default Favorites;
+export default FavoriteCard;
