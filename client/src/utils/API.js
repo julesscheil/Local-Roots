@@ -22,4 +22,7 @@ export default {
   getFavorites: function() {
     return axios.get("/api/favorites");
   },
+  getForSaleComment: function() {
+    return axios.get("/api/sales/comment");
+  },
 };

@@ -4,7 +4,11 @@ const salesController = require("../../controllers/salesController");
 // Matches with "/api/books"
 router.route("/")
     .get(salesController.findAll)
-    .post(salesController.create);
+    .post(salesController.create)
+    .get(salesController.findComment);
+
+    router.route("/comment")
+    .get(salesController.findComment)
 
 // // Matches with "/api/books/:id"
 // router
