@@ -42,7 +42,6 @@ function ForSaleCard() {
        )
         
      })
-      
       return (
          
           <Card style={{ width: '18rem' }}>
