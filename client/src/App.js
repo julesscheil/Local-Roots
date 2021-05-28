@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import SaleCard from "./components/ForSaleCard/index";
 import ForumCard from "./components/ForumCard/index";
 import { Nav, Form, FormControl, Button, Container } from "react-bootstrap";
@@ -19,6 +19,7 @@ function App() {
   const [newPassword, setNewPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [userId, setUserId] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     API.checkLogin({})
@@ -26,6 +27,7 @@ function App() {
         console.log(res);
         setLoggedIn(res.data.logged_in);
         setUserId(res.data.user_id);
+        history.push("/forsale");
       })
       .catch((err) => console.log(err));
   }, []);
@@ -37,6 +39,7 @@ function App() {
         console.log(res);
         setLoggedIn(res.data.logged_in);
         setUserId(res.data.user_id);
+        history.push("/forsale");
       })
       .catch((err) => console.log(err));
     setName("");
@@ -51,6 +54,7 @@ function App() {
         console.log(res);
         setLoggedIn(res.data.logged_in);
         setUserId(res.data.user_id);
+        history.push("/forsale");
       })
       .catch((err) => console.log(err));
     setEmail("");
@@ -69,7 +73,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <div>
       {loggedIn && <Navbar handleLogout={handleLogout} />}
       <div className="App">
         {/* TODO: add redirect to For Sale from react router dom for loggedin */}
@@ -140,7 +144,7 @@ function App() {
           <Route component={NoMatch} />
         </Switch>
       </div>
-    </Router>
+    </div>
   );
 }
 
