@@ -1,5 +1,32 @@
 .App {
-    background-color: darkseagreen;
-    padding-top: 80px;
-    padding-bottom: 200px;
+    /* color: darkslategray; */
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+    padding-bottom: 300px;
+}
+
+.signup {
+    color: darkslategray;
+    padding-bottom: 20px;
+    font-style: italic;
+    
+}
+
+.login {
+    color: darkslategray; 
+    padding-bottom: 60px;
+    font-style: italic;
+}
+
+.container{
+padding-top: 85px;
+}
+
+.form-group {
+    padding: 20px;
+    font-size: 40px;
+}
+
+.card {
+    padding: 30px
 }

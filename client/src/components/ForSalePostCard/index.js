@@ -14,7 +14,11 @@ const Sale = () => {
 
   return (
     
-        <div className="container">
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}>
         
           <form id="new-post-form" className="card-body">
             <label className="form-label" for="post-title">Title</label>
@@ -24,8 +28,8 @@ const Sale = () => {
             <textarea name="post-body" className="form-input"></textarea>
 
             <div class="dropdown">
-              <DropdownButton 
-              alignRight
+              <DropdownButton variant="success" 
+             alignRight
               title="Category"
               id="dropdown-menu-align-right"
               onSelect={handleSelect}
@@ -39,7 +43,7 @@ const Sale = () => {
 
             <label className="form-label" for="post-title">Location</label>
             <input type="text" name="post-title" className="form-input" />
-            <Button type="submit" className="btn">Create</Button>
+            <Button variant="success" type="submit" className="btn">Create</Button>
           </form>
         </div>
   );
