@@ -1,6 +1,20 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+router.post("/session", (req, res) => {
+  if (req.session.logged_in) {
+    req.session.reload(() => {
+      res.json({
+        logged_in: req.session.logged_in,
+        user_id: req.session.user_id,
+        message: "You are logged in.",
+      });
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
 router.post("/signup", async (req, res) => {
   try {
     console.log(req.body);
@@ -27,7 +41,7 @@ router.post("/login", async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+        .json({ message: "Incorrect email, please try again" });
       return;
     }
 
@@ -36,7 +50,7 @@ router.post("/login", async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
+        .json({ message: "Incorrect password, please try again" });
       return;
     }
 
@@ -55,20 +69,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/session", (req, res) => {
-  if (req.session.logged_in) {
-    req.session.reload(() => {
-      res.json({
-        logged_in: req.session.logged_in,
-        user_id: req.session.user_id,
-        message: "You are logged in.",
-      });
-    });
-  } else {
-    res.status(404).end();
-  }
-});
-
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -78,7 +78,5 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
-
-// create similar to logout route when loading the page to determine from session whether logged in (isLoggedIn)
 
 module.exports = router;
