@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Nav, Form, Navbar, FormControl, Button} from "react-bootstrap";
-import logo from './images/lrlogo2.JPEG';
+import logo from './images/lrlogo.jpeg';
 import "./style.css";
 
 
@@ -11,19 +11,34 @@ function NavComponent(props) {
     <Router>
 
 <Navbar bg="light" variant="light">
-<Nav className="mr-auto">
+
+                        <div className="navlinks">
+                          
+  <Nav className="mr-auto">
 <a className="navbar-brand" href="/">
     <img src={logo} width="70" height="70" alt=""/>
   </a>
-  <Navbar.Brand href="#home">Local Roots</Navbar.Brand>
+  
+  <Navbar.Brand href="#home"></Navbar.Brand>
+ 
   <Nav.Link href="/">Home</Nav.Link>
   <Nav.Link href="/forum">Forum</Nav.Link>
   <Nav.Link href="/favorites">Favorites</Nav.Link>
   <Nav.Link href="/forsale">For Sale</Nav.Link>
-  
-  <Button  onClick={props.handleLogout}>Logout</Button>
+ 
+  <div className="button"
+                        style={{
+                          display: "flex",
+               
+                          alignItems: "center",
+                        }}
+                      >
+  <Button variant="outline-success" onClick={props.handleLogout}>Logout</Button>
+ </div>
 
 </Nav>
+</div>
+
 </Navbar>
 </Router>
   );

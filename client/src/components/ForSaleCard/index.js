@@ -43,7 +43,7 @@ function ForSaleCard() {
      })
       
       return (
-            
+         
           <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src="./images/plantspic.png" />
         <Card.Body>
@@ -53,7 +53,7 @@ function ForSaleCard() {
             {sale.description}
             {sale.createdAt}
           </Card.Text>
-          <Button variant="primary">Inquire</Button>
+          <Button variant="success">Inquire</Button>
           <h4>Inquiries</h4>
           {filtered}
         </Card.Body>

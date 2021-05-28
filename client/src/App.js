@@ -2,13 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import SaleCard from "./components/ForSaleCard/index";
 import ForumCard from "./components/ForumCard/index";
-import { Nav, Form, FormControl, Button, Container } from "react-bootstrap";
+import {
+  Nav,
+  Form,
+  FormControl,
+  Button,
+  CardDeck,
+  Container,
+  Card,
+} from "react-bootstrap";
 import Favorites from "./Pages/Favorites/index";
 import Sale from "./Pages/forSale/index";
 import forumPosts from "./Pages/forumPosts/index";
 import NoMatch from "./Pages/NoMatch/index";
 import Navbar from "./components/NavBar";
 import API from "./utils/API";
+import background from "./images/lrback6.JPEG";
 import "./App.css";
 
 function App() {
@@ -72,22 +81,33 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="App" style={{ backgroundImage: `url(${background})` }}>
       {loggedIn && <Navbar handleLogout={handleLogout} />}
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Container>
-              <div className="form-group">
-                <h1>Signup Form</h1>
-                <form onSubmit={handleSignup}>
-                  <input
-                    type="name"
-                    className="form-control"
-                    placeholder="Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
+            <Container className="container">
+              <CardDeck>
+                <Card className="card" style={{ width: "18rem" }}>
+                  <div className="form-group">
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <h1 className="signup">Signup Form</h1>
+                    </div>
+                    <form onSubmit={handleSignup} />
+                    <input
+                      type="name"
+                      className="form-control"
+                      placeholder="Name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
                   <div className="form-group">
                     <input
                       type="email"
@@ -99,7 +119,6 @@ function App() {
                   </div>
                   <div className="form-group">
                     <input
-                      type="password"
                       className="form-control"
                       type="password"
                       placeholder="Password"
@@ -108,10 +127,20 @@ function App() {
                     />
                   </div>
                   <button type="submit">Signup</button>
-                </form>
-                <h1>Login Form</h1>
-                <div className="form-group">
-                  <form onSubmit={handleLogin}>
+                </Card>
+
+                <Card className="card" style={{ width: "18rem" }}>
+                  <div className="form-group">
+                  <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                    <h1 className="login">Login Form</h1>
+</div>
+                    <form onSubmit={handleLogin} />
                     <input
                       type="email"
                       className="form-control"
@@ -119,19 +148,19 @@ function App() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-
+                  </div>
+                  <div className="form-group">
                     <input
-                      type="password"
                       className="form-control"
                       type="password"
                       placeholder="Password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button type="submit">Login</button>
-                  </form>
-                </div>
-              </div>
+                  </div>
+                  <button type="submit">Login</button>
+                </Card>
+              </CardDeck>
             </Container>
           </Route>
           <Route exact path="/forsale" component={Sale} />
