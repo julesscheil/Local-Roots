@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import "./style.css";
 import API from "../../utils/API";
+import plant from "../../images/plantspic.png";
 import { Container, Row, Col } from "react-bootstrap";
 
 function ForSaleCard() {
@@ -44,7 +45,7 @@ function ForSaleCard() {
       return (
          
           <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="./images/plantspic.png" />
+        <Card.Img variant="top" src={plant} alt="Logo" />
         <Card.Body>
           <Card.Title>{sale.title}</Card.Title>
           <h4>{sale.location}</h4>

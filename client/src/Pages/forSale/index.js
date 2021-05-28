@@ -27,7 +27,7 @@ const Sale = () => {
             <div className="card-header">
               <h2>Create New Post</h2>
             </div>
-            <ForSalePostCard />
+            <ForSalePostCard/>
           </div>
         </div>
       </CardGroup>
