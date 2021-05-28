@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Container, Row, Col, Button, DropdownButton } from "react-bootstrap";
+import { Container, Row, Col, Button, DropdownButton, Card } from "react-bootstrap";
 import "./style.css";
 import Dropdown from 'react-bootstrap/Dropdown'
 
@@ -13,7 +13,8 @@ const Sale = () => {
   };
 
   return (
-    
+    <Container>
+      <Card>
         <div style={{
           display: "flex",
           justifyContent: "center",
@@ -42,10 +43,12 @@ const Sale = () => {
             </div>
 
             <label className="form-label" for="post-title">Location</label>
-            <input type="text" name="post-title" className="form-input" />
+            <input type="text" name="post-title" className="form-input"/>
             <Button variant="success" type="submit" className="btn">Create</Button>
           </form>
         </div>
+        </Card>
+        </Container>
   );
 };
 
