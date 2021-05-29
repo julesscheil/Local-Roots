@@ -1,38 +1,83 @@
-import React, {useState} from "react";
-import { Container, Row, Col, Button, DropdownButton } from "react-bootstrap";
+import React, { useState } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  DropdownButton,
+  Card,
+} from "react-bootstrap";
 import "./style.css";
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from "react-bootstrap/Dropdown";
+import API from "../../utils/API";
 
-const Sale = () => {
+const NewSale = (props) => {
+  const [category, setCategory] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
 
-
-  const [category,setCategory]=useState('');
-  const handleSelect=(e)=>{
+  const handleSelect = (e) => {
     console.log(e);
-    setCategory(e)
+    setCategory(e);
+  };
+
+  const handlePost = (event) => {
+    event.preventDefault();
+    API.createSale({
+      title: title,
+      description: description,
+      category: category,
+      location: location,
+      user_id: props.user_id,
+    })
+      .then((res) => {
+        console.log(res);
+        setCategory("");
+        setTitle("");
+        setDescription("");
+        setLocation("");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
-    
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}>
-        
-          <form id="new-post-form" className="card-body">
-            <label className="form-label" for="post-title">Title</label>
-            <input type="text" name="post-title" className="form-input" />
+    <Container>
+      <Card>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <form id="new-post-form" className="card-body" onSubmit={handlePost}>
+            <label className="form-label" for="post-title">
+              Title
+            </label>
+            <input
+              type="text"
+              name="post-title"
+              className="form-input"
+              onChange={(e) => setTitle(e.target.value)}
+            />
 
-            <label className="form-label" for="post-body">Content</label>
-            <textarea name="post-body" className="form-input"></textarea>
+            <label className="form-label" for="post-body">
+              Content
+            </label>
+            <textarea
+              name="post-body"
+              className="form-input"
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
 
             <div class="dropdown">
-              <DropdownButton variant="success" 
-             alignRight
-              title="Category"
-              id="dropdown-menu-align-right"
-              onSelect={handleSelect}
+              <DropdownButton
+                variant="success"
+                alignRight
+                title="Category"
+                id="dropdown-menu-align-right"
+                onSelect={handleSelect}
               >
                 <Dropdown.Item eventKey="Indoor">Indoor</Dropdown.Item>
                 <Dropdown.Item eventKey="Outdoor">Outdoor</Dropdown.Item>
@@ -41,12 +86,23 @@ const Sale = () => {
               </DropdownButton>
             </div>
 
-            <label className="form-label" for="post-title">Location</label>
-            <input type="text" name="post-title" className="form-input" />
-            <Button variant="success" type="submit" className="btn">Create</Button>
+            <label className="form-label" for="post-title">
+              Location
+            </label>
+            <input
+              type="text"
+              name="post-title"
+              className="form-input"
+              onChange={(e) => setLocation(e.target.value)}
+            />
+            <Button variant="success" type="submit" className="btn">
+              Create
+            </Button>
           </form>
         </div>
+      </Card>
+    </Container>
   );
 };
 
-export default Sale;
+export default NewSale;

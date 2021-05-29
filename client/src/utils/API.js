@@ -25,7 +25,13 @@ export default {
   getFavorites: function () {
     return axios.get("/api/favorites");
   },
+  newFavorite: function (favoriteData) {
+    return axios.post("api/favorites", favoriteData);
+  },
   getForSaleComment: function() {
     return axios.get("/api/sales/comment");
   },
+  createSaleComment: function(commentData) {
+    return axios.post("/api/sales/comment", commentData);
+  }
 };
