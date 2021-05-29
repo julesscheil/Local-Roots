@@ -10,10 +10,10 @@ function NavComponent(props) {
         <div className="navlinks">
           <Nav className="mr-auto">
             <a className="navbar-brand" href="/">
-              <img src={logo} width="70" height="70" alt="" />
+              <img src={logo} width="60" height="60" alt="" />
             </a>
             {props.logged_in ? (
-              <div>
+              <div className="row">
                 <Nav.Link href="/">For Sale</Nav.Link>
                 <Nav.Link href="/forum">Forum</Nav.Link>
                 <Nav.Link href="/favorites">Favorites</Nav.Link>

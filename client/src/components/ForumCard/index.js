@@ -51,7 +51,6 @@ function Post(props)  {
               <Card.Body>
                 <h4>{forums.title}</h4>
                 <Card.Text>{forums.description}</Card.Text>
-                <Button variant="primary">Inquire</Button>
               </Card.Body>
               <form onSubmit={() => handleComment(forums.forum_post_id)}>
                   <input

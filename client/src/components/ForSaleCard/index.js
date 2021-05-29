@@ -49,36 +49,43 @@ function ForSaleCard(props) {
           const filtered = comments
             .filter((comment) => comment.sale_post_id === id)
             .map((mapped) => {
+              console.log(mapped)
               return (
-                <div className="container">
+                <div>
                   <div>{mapped.description} </div>
-                  <div>--------------------</div>
+                  <div className="text-right">-{mapped["user.name"]}</div>
                 </div>
               );
             });
           return (
-            <Card style={{ width: "18rem" }}>
-              <Button onClick={() => handleFavorite(sale.sale_post_id)}>Save</Button>
-              <Card.Img variant="top" src={plant} alt="Logo" />
+            <Card className="p-2 m-1">
+              <div className="text-right">
+              <Button variant="outline-success"  style={{width:"80px" ,height:"auto"}} onClick={() => handleFavorite(sale.sale_post_id)}>Save</Button>
+              </div>
+              <Card.Img variant="top" src={plant} alt="Logo" style={{width:"300px", height:"auto"}}/>
               <Card.Body>
                 <Card.Title>{sale.title}</Card.Title>
-                <h4>{sale.location}</h4>
                 <Card.Text>
-                  {sale.description}
-                  {sale.createdAt}
+                  <p>{sale.description}</p>
+                  <p>Category: <span style={{color:"green", fontWeight:"bolder"}}>{sale.category}</span>
+                  <br/>Location: <span style={{color:"green", fontWeight:"bolder"}}>{sale.location}</span></p>
                 </Card.Text>
+                <div>
                 <form onSubmit={() => handleComment(sale.sale_post_id)}>
                   <input
                     type="text"
-                    // value={newComment}
+                    placeholder="Type a comment here..."
                     onChange={(e) => setNewComment(e.target.value)}
+                    className="form-control"
                   ></input>
                   <Button variant="success" type="submit">
-                    Inquire
+                    I'm interested
                   </Button>
                 </form>
-                <h4>Inquiries</h4>
-                {filtered}
+                </div>
+                <br/>
+                <p style={{fontSize:"20px"}}>Inquiries</p>
+                <div><p>{filtered}</p></div>
               </Card.Body>
             </Card>
           );
