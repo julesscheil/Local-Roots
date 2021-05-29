@@ -18,7 +18,7 @@ const Sale = (props) => {
           <Row>
             <h2>Plants For Sale</h2>
 
-            <ForSaleCard />
+            <ForSaleCard user_id={props.user_id}/>
           </Row>
         </Card>
         <div className="container">
