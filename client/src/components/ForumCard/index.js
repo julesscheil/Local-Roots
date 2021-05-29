@@ -4,9 +4,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
 
-const Post = () => {
+function Post(props)  {
   const [forum, setForum] = useState([]);
   const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
     API.getForumPost(forum)
@@ -20,6 +21,16 @@ const Post = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const handleComment = (postId) => {
+    API.createForumComment({ description: newComment, user_id: props.user_id, forum_post_id: postId })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+    setNewComment("");
+  };
+
   return (
     <Container>
       <Row>
@@ -41,9 +52,18 @@ const Post = () => {
                 <h4>{forums.title}</h4>
                 <Card.Text>{forums.description}</Card.Text>
                 <Button variant="primary">Inquire</Button>
+              </Card.Body>
+              <form onSubmit={() => handleComment(forums.forum_post_id)}>
+                  <input
+                    type="text"
+                    onChange={(e) => setNewComment(e.target.value)}
+                  ></input>
+                  <Button variant="success" type="submit">
+                    Post Comment
+                  </Button>
+                </form>
                 <h4>Comments</h4>
                 {filtered}
-              </Card.Body>
             </Card>
           );
         })}

@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import Favorites from "./Pages/Favorites/index";
 import Sale from "./Pages/forSale/index";
-import forumPosts from "./Pages/forumPosts/index";
+import Forum from "./Pages/forumPosts/index";
 import NoMatch from "./Pages/NoMatch/index";
 import NavComponent from "./components/NavBar";
 import API from "./utils/API";
@@ -164,7 +164,9 @@ function App() {
               </Container>
             )}
           </Route>
-          <Route exact path="/forum" component={forumPosts} />
+          <Route exact path="/forum">
+            <Forum user_id={userId} />
+          </Route>
           <Route exact path="/favorites">
             <Favorites user_id={userId} />
           </Route>
