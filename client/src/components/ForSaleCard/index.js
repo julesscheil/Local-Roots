@@ -45,7 +45,7 @@ function ForSaleCard() {
       return (
          
           <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="./images/plantspic.png" />
+        <Card.Img variant="top" src="../../images/plantspic.png" />
         <Card.Body>
           <Card.Title>{sale.title}</Card.Title>
           <h4>{sale.location}</h4>
