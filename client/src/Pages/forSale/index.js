@@ -1,13 +1,12 @@
 import React from "react";
-
 import { Card, Button } from "react-bootstrap";
 import { Container, Row, Col, CardGroup } from "react-bootstrap";
-
-import API from "../../utils/API";
 import "./style.css";
 import ForSaleCard from "../../components/ForSaleCard/index";
-import ForSalePostCard from "../../components/ForSalePostCard/index";
-const Sale = () => {
+import NewSale from "../../components/ForSalePostCard/index";
+
+const Sale = (props) => {
+
   return (
     <Container style={{
       display: "flex",
@@ -27,7 +26,7 @@ const Sale = () => {
             <div className="card-header">
               <h2>Create New Post</h2>
             </div>
-            <ForSalePostCard/>
+            <NewSale user_id={props.user_id}/>
           </div>
         </div>
       </CardGroup>

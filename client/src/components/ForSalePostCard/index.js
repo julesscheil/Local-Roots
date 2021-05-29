@@ -2,14 +2,27 @@ import React, {useState} from "react";
 import { Container, Row, Col, Button, DropdownButton, Card } from "react-bootstrap";
 import "./style.css";
 import Dropdown from 'react-bootstrap/Dropdown'
+import API from "../../utils/API";
 
-const Sale = () => {
+const NewSale = (props) => {
 
+  const [category, setCategory]=useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
 
-  const [category,setCategory]=useState('');
   const handleSelect=(e)=>{
     console.log(e);
     setCategory(e)
+  };
+
+  const handlePost = (event) => {
+    event.preventDefault();
+    API.createSale({ title: title, description: description, category: category, location: location, user_id: props.user_id })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -21,12 +34,12 @@ const Sale = () => {
           alignItems: "center",
         }}>
         
-          <form id="new-post-form" className="card-body">
+          <form id="new-post-form" className="card-body" onSubmit={handlePost}>
             <label className="form-label" for="post-title">Title</label>
-            <input type="text" name="post-title" className="form-input" />
+            <input type="text" name="post-title" className="form-input" onChange={(e) => setTitle(e.target.value)}/>
 
             <label className="form-label" for="post-body">Content</label>
-            <textarea name="post-body" className="form-input"></textarea>
+            <textarea name="post-body" className="form-input" onChange={(e) => setDescription(e.target.value)}></textarea>
 
             <div class="dropdown">
               <DropdownButton variant="success" 
@@ -42,8 +55,8 @@ const Sale = () => {
               </DropdownButton>
             </div>
 
-            <label className="form-label" for="post-title">Location</label>
-            <input type="text" name="post-title" className="form-input"/>
+            <label className="form-label" for="post-title" >Location</label>
+            <input type="text" name="post-title" className="form-input" onChange={(e) => setLocation(e.target.value)}/>
             <Button variant="success" type="submit" className="btn">Create</Button>
           </form>
         </div>
@@ -52,4 +65,4 @@ const Sale = () => {
   );
 };
 
-export default Sale;
+export default NewSale;
