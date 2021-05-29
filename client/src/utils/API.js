@@ -40,4 +40,7 @@ export default {
   createForumComment: function(commentData) {
     return axios.post("/api/forum/comment", commentData);
   },
+  createForumPost: function (postData) {
+    return axios.post("/api/sales", postData);
+  },
 };
