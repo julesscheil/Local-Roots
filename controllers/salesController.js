@@ -18,6 +18,7 @@ module.exports = {
   findComment: function (req, res) {
     db.ForSaleComment.findAll({
       raw: true,
+      include:[db.User]
     })
       .then((dbComment) => {
         console.log(dbComment);
