@@ -6,6 +6,9 @@ router.route("/")
     .get(forumPostController.findAll)
     .post(forumPostController.create);
 
+router.route("/comment")
+    .get(forumPostController.findComment)
+    .post(forumPostController.newComment)
 // // Matches with "/api/books/:id"
 // router
 //   .route("/:id")

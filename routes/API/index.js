@@ -11,4 +11,5 @@ router.use("/sales", salesRoutes);
 router.use("/forum", forumRoutes);
 router.use("/favorites", favoriteRoutes);
 
+
 module.exports = router;

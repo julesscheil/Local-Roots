@@ -33,5 +33,8 @@ export default {
   },
   createSaleComment: function(commentData) {
     return axios.post("/api/sales/comment", commentData);
-  }
+  },
+  getForumComment: function() {
+    return axios.get("/api/forum/comment");
+  },
 };

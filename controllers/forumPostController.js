@@ -15,6 +15,19 @@ module.exports = {
       .then(dbForum => res.json(dbForum))
       .catch(err => res.status(422).json(err));
   },
+  findComment: function (req, res) {
+    db.ForumComment.findAll({ raw: true })
+      .then((dbComment) => {
+        console.log(dbComment);
+        res.json(dbComment);
+      })
+      .catch((err) => res.status(422).json(err));
+  },
+  newComment: function (req, res) {
+    db.ForumComment.create(req.body)
+      .then((dbComment) => res.json(dbComment))
+      .catch((err) => res.status(422).json(err));
+  },
   //   findById: function(req, res) {
   //     db.Book.findById(req.params.id)
   //       .then(dbBook => res.json(dbBook))
