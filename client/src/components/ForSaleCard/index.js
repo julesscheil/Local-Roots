@@ -67,8 +67,10 @@ function ForSaleCard(props) {
                 <Card.Title>{sale.title}</Card.Title>
                 <Card.Text>
                   <p>{sale.description}</p>
-                  <p>Category: <span style={{color:"green", fontWeight:"bolder"}}>{sale.category}</span>
-                  <br/>Location: <span style={{color:"green", fontWeight:"bolder"}}>{sale.location}</span></p>
+                  <p>
+                    {/* Category: <span style={{color:"green", fontWeight:"bolder"}}>{sale.category}</span> */}
+                  {/* <br/> */}
+                  Location: <span style={{color:"green", fontWeight:"bolder"}}>{sale.location}</span></p>
                 </Card.Text>
                 <div>
                 <form onSubmit={() => handleComment(sale.sale_post_id)}>

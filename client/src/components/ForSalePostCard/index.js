@@ -45,35 +45,35 @@ const NewSale = (props) => {
     <Container>
       <Card>
         <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
         >
-          <form id="new-post-form" className="card-body" onSubmit={handlePost}>
-            <label className="form-label" for="post-title">
+          <form id="new-post-form" onSubmit={handlePost}>
+            <div >
+              <label for="post-title" style={{fontSize:"25px"}}>
               Title
-            </label>
-            <input
-              type="text"
-              name="post-title"
-              className="form-input"
-              onChange={(e) => setTitle(e.target.value)}
-            />
-
-            <label className="form-label" for="post-body">
+              </label>
+              <input
+                type="text"
+                name="post-title"
+                className="form-control"
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <div >
+            <label style={{fontSize:"25px"}} for="post-body">
               Content
             </label>
             <textarea
               name="post-body"
-              className="form-input"
+              className="form-control"
+              rows="3"
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
-
-            <div class="dropdown">
+            </div>
+            <br/>
+            {/* <div className="text-center">
+            
               <DropdownButton
-                variant="success"
+                variant="outline-success"
                 alignRight
                 title="Category"
                 id="dropdown-menu-align-right"
@@ -84,20 +84,20 @@ const NewSale = (props) => {
                 <Dropdown.Item eventKey="Her">Herb</Dropdown.Item>
                 <Dropdown.Item eventKey="Veggie">Veggie</Dropdown.Item>
               </DropdownButton>
-            </div>
-
-            <label className="form-label" for="post-title">
+              </div> */}
+            <label style={{fontSize:"25px"}} for="post-title">
               Location
             </label>
             <input
               type="text"
-              name="post-title"
-              className="form-input"
+              className="form-control"
               onChange={(e) => setLocation(e.target.value)}
             />
+            <br/>
+            <div className="text-center">
             <Button variant="success" type="submit" className="btn">
-              Create
-            </Button>
+              Create New Listing
+            </Button></div>
           </form>
         </div>
       </Card>

@@ -22,7 +22,7 @@ const Sale = (props) => {
           </Row>
         </Card>
         <div className="container">
-          <div className="post card">
+          <div className="post card mx-auto" style={{width:"50rem"}}>
             <div className="card-header">
               <h2>Create New Post</h2>
             </div>

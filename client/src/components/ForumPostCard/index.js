@@ -34,35 +34,35 @@ const NewPost = (props) => {
     <Container>
       <Card>
         <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
         >
-          <form id="new-post-form" className="card-body" onSubmit={handlePost}>
-            <label className="form-label" for="post-title">
+          <form id="new-post-form" onSubmit={handlePost}>
+            <div >
+              <label for="post-title" style={{fontSize:"25px"}}>
               Title
-            </label>
-            <input
-              type="text"
-              name="post-title"
-              className="form-input"
-              onChange={(e) => setTitle(e.target.value)}
-            />
-
-            <label className="form-label" for="post-body">
+              </label>
+              <input
+                type="text"
+                name="post-title"
+                className="form-control"
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <div >
+            <label style={{fontSize:"25px"}} for="post-body">
               Content
             </label>
             <textarea
               name="post-body"
-              className="form-input"
+              className="form-control"
+              rows="3"
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
-
+            </div>
+          <br/>
+            <div className="text-center">
             <Button variant="success" type="submit" className="btn">
-              Post
-            </Button>
+              Create New Post
+            </Button></div>
           </form>
         </div>
       </Card>

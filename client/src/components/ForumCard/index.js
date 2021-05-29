@@ -40,29 +40,34 @@ function Post(props)  {
            const filtered = comments.filter((comment) => comment.forum_post_id === id).map((mapped) => {
             // console.log(mapped)  
             return (
-                 <div className="container">
+                 <div>
                    <div>{mapped.description} </div>
-                   <div>--------------------</div>
+                   <div className="text-right">-{mapped["user.name"]}</div>
                  </div>
                );
              });
           return (
-            <Card style={{ width: "18rem" }}>
+            <Card style={{width: "18rem"}} className="p-2 m-1">
               <Card.Body>
-                <h4>{forums.title}</h4>
-                <Card.Text>{forums.description}</Card.Text>
+              <Card.Title style={{fontSize:"25px"}}>{forums.title}</Card.Title>
+                <Card.Text>
+                  <p>{forums.description}</p>
+                  </Card.Text>
               </Card.Body>
               <form onSubmit={() => handleComment(forums.forum_post_id)}>
                   <input
                     type="text"
+                    placeholder="Type a comment here..."
+                    className="form-control"
                     onChange={(e) => setNewComment(e.target.value)}
                   ></input>
                   <Button variant="success" type="submit">
                     Post Comment
                   </Button>
                 </form>
-                <h4>Comments</h4>
-                {filtered}
+                <br/>
+                <p style={{fontSize:"20px"}}>Comments</p>
+                <div><p>{filtered}</p></div>
             </Card>
           );
         })}

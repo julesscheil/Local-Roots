@@ -16,7 +16,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findComment: function (req, res) {
-    db.ForumComment.findAll({ raw: true })
+    db.ForumComment.findAll({ raw: true, 
+      include:[db.User] })
       .then((dbComment) => {
         console.log(dbComment);
         res.json(dbComment);
