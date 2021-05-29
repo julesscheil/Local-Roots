@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import {
   Container,
-  Row,
-  Col,
+  // Row,
+  // Col,
   Button,
-  DropdownButton,
+  // DropdownButton,
   Card,
 } from "react-bootstrap";
 import "./style.css";
-import Dropdown from "react-bootstrap/Dropdown";
+// import Dropdown from "react-bootstrap/Dropdown";
 import API from "../../utils/API";
 
 const NewPost = (props) => {
