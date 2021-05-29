@@ -8,6 +8,7 @@ router.route("/")
 
     router.route("/comment")
     .get(salesController.findComment)
+    .post(salesController.newComment)
 
 // // Matches with "/api/books/:id"
 // router

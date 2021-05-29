@@ -3,21 +3,21 @@ const db = require("../models");
 // Defining methods for the bookController
 module.exports = {
   findAll: function (req, res) {
-    db.ForSalePost.findAll({ raw: true,
-    })
+    db.ForSalePost.findAll({ raw: true })
       .then((dbSales) => {
         console.log(dbSales);
         res.json(dbSales);
       })
       .catch((err) => res.status(422).json(err));
   },
-  create: function(req, res) {
+  create: function (req, res) {
     db.ForSalePost.create(req.body)
-      .then(dbSales => res.json(dbSales))
-      .catch(err => res.status(422).json(err));
+      .then((dbSales) => res.json(dbSales))
+      .catch((err) => res.status(422).json(err));
   },
   findComment: function (req, res) {
-    db.ForSaleComment.findAll({ raw: true,
+    db.ForSaleComment.findAll({
+      raw: true,
       // include: [
       //   db.User
       // ],
@@ -26,6 +26,11 @@ module.exports = {
         console.log(dbComment);
         res.json(dbComment);
       })
+      .catch((err) => res.status(422).json(err));
+  },
+  newComment: function (req, res) {
+    db.ForSaleComment.create(req.body)
+      .then((dbComment) => res.json(dbComment))
       .catch((err) => res.status(422).json(err));
   },
   //   findById: function(req, res) {
