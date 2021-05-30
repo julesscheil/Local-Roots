@@ -5,7 +5,6 @@ module.exports = {
   findAll: function (req, res) {
     db.ForSalePost.findAll({ raw: true })
       .then((dbSales) => {
-        console.log(dbSales);
         res.json(dbSales);
       })
       .catch((err) => res.status(422).json(err));
@@ -21,7 +20,6 @@ module.exports = {
       include:[db.User]
     })
       .then((dbComment) => {
-        console.log(dbComment);
         res.json(dbComment);
       })
       .catch((err) => res.status(422).json(err));

@@ -2,18 +2,21 @@ const db = require("../models");
 // Defining methods for the bookController
 module.exports = {
   findAll: function (req, res) {
+    console.log(req.body);
     db.SavedPost.findAll({
-      raw: true,
+      where: { user_id: req.body.user_id },
     })
-      .then((dbSaved) => {
-        console.log(dbSaved);
-        res.json(dbSaved);
-      })
+      .then((dbSaved) => res.json(dbSaved))
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
-    console.log(req.body);
     db.SavedPost.create(req.body)
+      .then((dbSaved) => res.json(dbSaved))
+      .catch((err) => res.status(422).json(err));
+  },
+  remove: function (req, res) {
+    db.SavedPost.findById(req.params.id)
+      .then((dbSaved) => dbSaved.remove())
       .then((dbSaved) => res.json(dbSaved))
       .catch((err) => res.status(422).json(err));
   },
@@ -28,10 +31,4 @@ module.exports = {
   //       .then(dbBook => res.json(dbBook))
   //       .catch(err => res.status(422).json(err));
   //   },
-  //   remove: function(req, res) {
-  //     db.Book.findById(req.params.id)
-  //       .then(dbBook => dbBook.remove())
-  //       .then(dbBook => res.json(dbBook))
-  //       .catch(err => res.status(422).json(err));
-  //   }
 };
