@@ -16,6 +16,9 @@ export default {
   getSales: function () {
     return axios.get("/api/sales");
   },
+  getFavoriteSales: function (favoriteData) {
+    return axios.post("/api/sales/favorites", favoriteData);
+  },
   createSale: function (saleData) {
     return axios.post("/api/sales", saleData);
   },

@@ -6,25 +6,24 @@ import "./style.css";
 import plant from "../../images/plantspic.png";
 
 const FavoriteCard = (props) => {
-  const [favorites, setFavorites] = useState([]);
   const [sales, setSales] = useState([]);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
-    API.getFavorites({ user_id: props.user_id })
+    // TODO: need to access user id from props
+    API.getFavorites({ user_id: 2 })
     .then((res) => {
-      setFavorites(res.data.sale_post_id);
-      console.log(favorites);
+      const favorites = res.data.map(function(i) {
+        return i.sale_post_id;
+      });
       getSalesInfo(favorites);
     })
     .catch((err) => console.log(err));
-
-
   }, []);
 
-  const getSalesInfo = (favoritePosts) => {
-    API.getSales(sales)
+  const getSalesInfo = (favoriteData) => {
+    API.getFavoriteSales(favoriteData)
       .then((res) => {
         setSales(res.data);
       })
