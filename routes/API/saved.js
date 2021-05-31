@@ -6,6 +6,6 @@ router.route("/")
     .post(savedController.create)
 
 router.route("/delete")
-    .delete(savedController.remove)
+    .post(savedController.remove)
 
 module.exports = router;
