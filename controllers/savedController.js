@@ -15,10 +15,9 @@ module.exports = {
   },
   remove: function (req, res) {
     console.log(req.body);
-    db.SavedPost.findAll({
+    db.SavedPost.destroy({
       where: { sale_post_id: req.body.sale_post_id, user_id: req.body.user_id },
     })
-      .then((dbSaved) => dbSaved.remove())
       .then((dbSaved) => res.json(dbSaved))
       .catch((err) => res.status(422).json(err));
   },
