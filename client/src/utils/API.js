@@ -16,11 +16,17 @@ export default {
   getSales: function () {
     return axios.get("/api/sales");
   },
+  getMySales: function (userData) {
+    return axios.post("/api/sales/me", userData);
+  },
   getFavoriteSales: function (favoriteData) {
     return axios.post("/api/sales/favorites", favoriteData);
   },
   createSale: function (saleData) {
     return axios.post("/api/sales", saleData);
+  },
+  removeSale: function (saleData) {
+    return axios.post("/api/sales/delete", saleData);
   },
   getForumPost: function () {
     return axios.get("/api/forum");
@@ -29,7 +35,7 @@ export default {
     return axios.post("/api/favorites", userData);
   },
   newFavorite: function (favoriteData) {
-    return axios.post("/api/favorites/new", favoriteData);
+    return axios.post("/api/favorites", favoriteData);
   },
   removeFavorite: function (favoriteData) {
     return axios.post("/api/favorites/delete", favoriteData);

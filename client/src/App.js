@@ -10,6 +10,7 @@ import Sale from "./Pages/forSale/index";
 import Forum from "./Pages/forumPosts/index";
 import NoMatch from "./Pages/NoMatch/index";
 import NavComponent from "./components/NavBar";
+import MySales from "./Pages/myPosts/index";
 import API from "./utils/API";
 import background from "./images/lrback6.JPEG";
 import "./App.css";
@@ -167,6 +168,9 @@ function App() {
           </Route>
           <Route exact path="/favorites">
             <Favorites user_id={userId} />
+          </Route>
+          <Route exact path="/mysales">
+            <MySales user_id={userId} />
           </Route>
           <Route component={NoMatch} />
         </Switch>
