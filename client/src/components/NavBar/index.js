@@ -17,6 +17,7 @@ function NavComponent(props) {
                 <Nav.Link href="/">For Sale</Nav.Link>
                 <Nav.Link href="/forum">Forum</Nav.Link>
                 <Nav.Link href="/favorites">Favorites</Nav.Link>
+                <Nav.Link href="/mysales">My Sales</Nav.Link>
                 <div
                   className="button"
                   style={{
