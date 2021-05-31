@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
-import "./style.css";
+import { Container, Row } from "react-bootstrap";
 import API from "../../utils/API";
+import "./style.css";
 import plant from "../../images/plantspic.png";
-import { Container, Row, Col } from "react-bootstrap";
 
-function ForSaleCard(props) {
+const MySalesCard = (props) => {
   const [sales, setSales] = useState([]);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
-    API.getSales(sales)
+    API.getMySales({ user_id: props.user_id })
       .then((res) => {
         setSales(res.data);
       })
       .catch((err) => console.log(err));
+
     API.getForSaleComment(comments)
       .then((res) => {
         setComments(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [props.user_id]);
 
   const handleComment = (postId) => {
     API.createSaleComment({
@@ -36,24 +37,23 @@ function ForSaleCard(props) {
     setNewComment("");
   };
 
-  const handleFavorite = (postId) => {
-    API.newFavorite({ sale_post_id: postId, user_id: props.user_id })
+  const handleDelete = (postId) => {
+    API.removeSale({ sale_post_id: postId })
       .then((res) => {
         console.log(res);
+        window.location.reload();
       })
       .catch((err) => console.log(err));
   };
 
   return (
     <Container>
-      <Row>
+      <Row className="row+">
         {sales.map((sale) => {
           const id = sale.sale_post_id;
-          // console.log(id);
           const filtered = comments
             .filter((comment) => comment.sale_post_id === id)
             .map((mapped) => {
-              console.log(mapped);
               return (
                 <div>
                   <div>{mapped.description} </div>
@@ -67,9 +67,9 @@ function ForSaleCard(props) {
                 <Button
                   variant="outline-success"
                   style={{ width: "80px", height: "auto" }}
-                  onClick={() => handleFavorite(sale.sale_post_id)}
+                  onClick={() => handleDelete(sale.sale_post_id)}
                 >
-                  Save
+                  Remove
                 </Button>
               </div>
               <Card.Img
@@ -83,8 +83,6 @@ function ForSaleCard(props) {
                 <Card.Text>
                   <p>{sale.description}</p>
                   <p>
-                    {/* Category: <span style={{color:"green", fontWeight:"bolder"}}>{sale.category}</span> */}
-                    {/* <br/> */}
                     Location:{" "}
                     <span style={{ color: "green", fontWeight: "bolder" }}>
                       {sale.location}
@@ -116,6 +114,6 @@ function ForSaleCard(props) {
       </Row>
     </Container>
   );
-}
+};
 
-export default ForSaleCard;
+export default MySalesCard;

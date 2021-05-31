@@ -37,6 +37,7 @@ const NewSale = (props) => {
         setTitle("");
         setDescription("");
         setLocation("");
+        window.location.reload();
       })
       .catch((err) => console.log(err));
   };
