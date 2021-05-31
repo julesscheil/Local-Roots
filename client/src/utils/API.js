@@ -16,28 +16,34 @@ export default {
   getSales: function () {
     return axios.get("/api/sales");
   },
+  getFavoriteSales: function (favoriteData) {
+    return axios.post("/api/sales/favorites", favoriteData);
+  },
   createSale: function (saleData) {
     return axios.post("/api/sales", saleData);
   },
   getForumPost: function () {
     return axios.get("/api/forum");
   },
-  getFavorites: function () {
-    return axios.get("/api/favorites");
+  getFavorites: function (userData) {
+    return axios.post("/api/favorites", userData);
   },
   newFavorite: function (favoriteData) {
-    return axios.post("api/favorites", favoriteData);
+    return axios.post("/api/favorites", favoriteData);
   },
-  getForSaleComment: function() {
+  removeFavorite: function (favoriteData) {
+    return axios.delete("/api/favorites/delete", favoriteData);
+  },
+  getForSaleComment: function () {
     return axios.get("/api/sales/comment");
   },
-  createSaleComment: function(commentData) {
+  createSaleComment: function (commentData) {
     return axios.post("/api/sales/comment", commentData);
   },
-  getForumComment: function() {
+  getForumComment: function () {
     return axios.get("/api/forum/comment");
   },
-  createForumComment: function(commentData) {
+  createForumComment: function (commentData) {
     return axios.post("/api/forum/comment", commentData);
   },
   createForumPost: function (postData) {

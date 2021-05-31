@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import {
   CardDeck,
   Container,
@@ -22,6 +22,7 @@ function App() {
   const [newPassword, setNewPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [userId, setUserId] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     API.checkLogin({})
@@ -67,6 +68,7 @@ function App() {
         console.log(res);
         setLoggedIn(false);
         setUserId(null);
+        history.push("/");
       })
       .catch((err) => console.log(err));
   };
