@@ -26,6 +26,7 @@ const NewPost = (props) => {
         console.log(res);
         setTitle("");
         setDescription("");
+        window.location.reload();
       })
       .catch((err) => console.log(err));
   };
