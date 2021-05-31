@@ -71,7 +71,7 @@ const FavoriteCard = (props) => {
           return (
             <Card className="p-2 m-1">
               <div className="text-right">
-              <Button variant="outline-success"  style={{width:"80px" ,height:"auto"}} onClick={() => handleDelete(sale.sale_post_id)}>Remove</Button>
+              {/* <Button variant="outline-success"  style={{width:"80px" ,height:"auto"}} onClick={() => handleDelete(sale.sale_post_id)}>Remove</Button> */}
               </div>
               <Card.Img variant="top" src={plant} alt="Logo" style={{width:"300px", height:"auto"}}/>
               <Card.Body>
