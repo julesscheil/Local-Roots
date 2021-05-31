@@ -11,8 +11,7 @@ const FavoriteCard = (props) => {
   const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
-    // TODO: need to access user id from props
-    API.getFavorites({ user_id: 2 })
+    API.getFavorites({ user_id: props.user_id })
     .then((res) => {
       const favorites = res.data.map(function(i) {
         return i.sale_post_id;
@@ -20,9 +19,10 @@ const FavoriteCard = (props) => {
       getSalesInfo(favorites);
     })
     .catch((err) => console.log(err));
-  }, []);
+  }, [props.user_id]);
 
   const getSalesInfo = (favoriteData) => {
+
     API.getFavoriteSales(favoriteData)
       .then((res) => {
         setSales(res.data);

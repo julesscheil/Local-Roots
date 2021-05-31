@@ -4,6 +4,8 @@ const savedController = require("../../controllers/savedController");
 router.route("/")
     .post(savedController.findAll)
     .post(savedController.create)
+
+router.route("/delete")
     .delete(savedController.remove)
 
 module.exports = router;

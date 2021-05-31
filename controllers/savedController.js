@@ -14,9 +14,12 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   remove: function (req, res) {
-    db.SavedPost.findById(req.params.id)
+    console.log(req.body);
+    db.SavedPost.findAll({
+      where: { sale_post_id: req.body.sale_post_id, user_id: req.body.user_id },
+    })
       .then((dbSaved) => dbSaved.remove())
       .then((dbSaved) => res.json(dbSaved))
       .catch((err) => res.status(422).json(err));
-  }
+  },
 };
