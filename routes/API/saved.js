@@ -3,6 +3,8 @@ const savedController = require("../../controllers/savedController");
 
 router.route("/")
     .post(savedController.findAll)
+
+router.route("/new")
     .post(savedController.create)
 
 router.route("/delete")
