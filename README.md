@@ -13,10 +13,10 @@ The deployed site can be found here: [Local Roots](https://peaceful-dawn-19611.h
 
 ## Project 
 
-![App Screenshot](images/login.png)
 ![App Screenshot](images/forsale.png)
-
-## Credits
+![App Screenshot](images/forum.png)
+![App Screenshot](images/login.png)
+## Check out the contributors on Github
 
 [Matt Hale](https://github.com/matthale11)
 
@@ -28,7 +28,7 @@ The deployed site can be found here: [Local Roots](https://peaceful-dawn-19611.h
 
 ## Questions 
 
-If you have any questions, feel free to contact us at:
+If you have any questions, feel free to contact and connect with us at:
 
 [Matt Hale](https://www.linkedin.com/in/matthewshale/)
 
