@@ -1,18 +1,23 @@
 [{
     "forum_post_id": "1",
-    "description": "this is a test comment 1",
+    "description": "WOW! No more last minute trips to the grocery store. Thanks!",
     "user_id": "1"
+},
+{
+    "forum_post_id": "1",
+    "description": "I love this tip! Thanks!",
+    "user_id": "2"
 },
 {
 
     "forum_post_id": "2",
-    "description": "this is a test comment 1",
-    "user_id": "1"
+    "description": "Once a week! Enough til the roots stop soaking it up then don't touch it for a week. Good luck!",
+    "user_id": "2"
 },
 {
 
     "forum_post_id": "3",
-    "description": "this is a test comment 1",
-    "user_id": "2"
+    "description": "I'm no help but YIKES! Maybe neem oil???",
+    "user_id": "3"
 }
 ]

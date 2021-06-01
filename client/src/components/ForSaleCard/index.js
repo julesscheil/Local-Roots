@@ -62,7 +62,7 @@ function ForSaleCard(props) {
               );
             });
           return (
-            <Card className="p-2 m-1">
+            <Card className="p-2 m-1" style={{ width: "18rem"}}>
               <div className="text-right">
                 <Button
                   variant="outline-success"
@@ -76,7 +76,7 @@ function ForSaleCard(props) {
                 variant="top"
                 src={plant}
                 alt="Logo"
-                style={{ width: "300px", height: "auto" }}
+                style={{ width: "270px", height: "auto" }}
               />
               <Card.Body>
                 <Card.Title>{sale.title}</Card.Title>
