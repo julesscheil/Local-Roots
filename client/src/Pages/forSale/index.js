@@ -14,13 +14,19 @@ const Sale = (props) => {
       alignItems: "center",
     }}>
       <CardGroup>
-        <Card >
+        
           <Row>
-            <h2>Plants For Sale</h2>
+            <Card style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}>
+            <h2 className="text-center">Plants For Sale</h2>
 
             <ForSaleCard user_id={props.user_id}/>
+            </Card>
           </Row>
-        </Card>
+        
         <div className="container">
           <div className="post card mx-auto" style={{width:"50rem"}}>
             <div className="card-header">
