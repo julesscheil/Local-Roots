@@ -9,7 +9,7 @@ Local Roots is an application for plant lovers and gardening enthusiasts where t
   * [License](#license)
 
 ## Deployed Site
-The deployed site can be found here: [Local Roots](https://peaceful-dawn-19611.herokuapp.com/)
+The deployed site can be found here: [Local Roots](https://damp-reef-27856.herokuapp.com/)
 
 ## Project 
 
