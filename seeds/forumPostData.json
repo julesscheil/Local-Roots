@@ -1,19 +1,19 @@
 [{
        
-        "title": "Forum Post 1",
-        "description": "this is a test post 1",
+        "title": "Life Hack Alert",
+        "description": "Today I found out you can regrow the green onions you buy at the store.. you just cut off what you need and stick the roots in a cup of water. Watch them grow so fast, endless green onions!",
         "user_id": "1"
     },
     {
         
-        "title": "Forum Post 2",
-        "description": "this is a test post 2",
-        "user_id": "1"
+        "title": "How Much Water?",
+        "description": "I bought a Bamboo Palm the other day and the lady at the store wasn't very helpful when I asked how much water to give it.. any suggestions??",
+        "user_id": "2"
     },
     {
       
-        "title": "Forum Post second user",
-        "description": "this is a test post",
-        "user_id": "2"
+        "title": "Bug Help!!",
+        "description": "My orange tree has these little bugs all over it and I'm not sure what they are or how to get rid of them. HELP!",
+        "user_id": "3"
     }
 ]

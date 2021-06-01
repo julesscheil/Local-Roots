@@ -1,25 +1,25 @@
 [{
        
-    "title": "Sale Post 1",
-    "description": "this is a test post 1",
+    "title": "2 Big Hydrangeas",
+    "description": "I have two large hydrangeas for pickup. $20",
     "user_id": "1",
-    "category": "indoor",
-    "location": "atlanta"
+    "category": "Indoor",
+    "location": "Atlanta"
 },
 {
     
-    "title": "Sale Post 1",
-    "description": "this is a test post 1",
+    "title": "Beautiful planter with String of Pearls",
+    "description": "I have a large black planter with String of Pearls growing around it. $15",
     "user_id": "2",
-    "category": "indoor",
-    "location": "buckhead"
+    "category": "Indoor",
+    "location": "Buckhead"
 },
 {
   
-    "title": "Sale Post 1",
-    "description": "this is a test post 1",
+    "title": "Mint & Parsley",
+    "description": "Multiple pots of mint & parsley for sale. $4 each",
     "user_id": "3",
-    "category": "indoor",
-    "location": "dacula"
+    "category": "Outdoor",
+    "location": "Brookhaven"
 }
 ]
